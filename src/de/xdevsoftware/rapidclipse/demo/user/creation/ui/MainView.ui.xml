@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+
+<?xdevuiml version="1.0"?>
+<?template BROWSER_XGA?>
+<?import com.xdev.ui.XdevButton?>
+<?import com.xdev.ui.XdevFieldGroup?>
+<?import com.xdev.ui.XdevGridLayout?>
+<?import com.xdev.ui.XdevHorizontalLayout?>
+<?import com.xdev.ui.XdevPasswordField?>
+<?import com.xdev.ui.XdevTextField?>
+<?import com.xdev.ui.XdevVerticalLayout?>
+<?import com.xdev.ui.XdevView?>
+<?import com.xdev.ui.entitycomponent.table.XdevTable?>
+<?import de.xdevsoftware.rapidclipse.demo.user.creation.entities.User?>
+<?import java.lang.String?>
+<XdevView xmlns:x="http://xml.xdev-software.com/xdevuiml" x:name="MainView">
+    <x:constraints zpos="0" width="100%" height="100%" />
+    <XdevGridLayout x:name="gridLayout">
+        <x:constraints zpos="0" width="100%" height="100%" />
+        <XdevGridLayout x:name="form" margin="">
+            <x:constraints gridx="1" gridy="1" weighty="0.1" weightx="0.1" width="100%" />
+            <XdevTextField columns="5" caption="Username" x:name="txtUsername">
+                <x:constraints gridx="2" gridy="1" weighty="0.0" weightx="1.0" width="100%" />
+            </XdevTextField>
+            <XdevVerticalLayout x:name="horizontalLayout2" margin="">
+                <x:constraints gridx="2" gridy="2" weighty="0.0" weightx="1.0" width="100%" />
+                <XdevPasswordField columns="5" caption="Password" x:name="txtPassword">
+                    <x:constraints weighty="0.0" weightx="0.0" width="100%" />
+                </XdevPasswordField>
+                <XdevPasswordField columns="5" caption="Repeat Password" x:name="txtRepeatPassword">
+                    <x:constraints weighty="0.0" weightx="0.0" width="100%" />
+                </XdevPasswordField>
+                <XdevButton icon="FontAwesome.KEY" caption="Change Password" styleName="friendly" x:name="cmdChangePassword" visible="false">
+                    <x:constraints weighty="0.0" width="100%" />
+                    <x:event>click.buttonClick</x:event>
+                </XdevButton>
+            </XdevVerticalLayout>
+            <XdevFieldGroup x:name="fieldGroup" x:entityType="User">
+                <x:typeArguments>
+                    <typeArgument type="User" />
+                </x:typeArguments>
+                <x:fields>
+                    <entry name="txtUsername" property="username" />
+                    <entry name="txtFirstname" property="firstname" />
+                    <entry name="txtLastname" property="lastname" />
+                </x:fields>
+            </XdevFieldGroup>
+            <XdevTextField columns="5" caption="Firstname" x:name="txtFirstname">
+                <x:constraints gridx="2" gridy="3" weighty="0.0" weightx="1.0" width="100%" />
+            </XdevTextField>
+            <XdevTextField columns="5" caption="Lastname" x:name="txtLastname">
+                <x:constraints gridx="2" gridy="4" weighty="0.0" weightx="1.0" width="100%" />
+            </XdevTextField>
+            <XdevHorizontalLayout x:name="horizontalLayout" margin="">
+                <x:constraints gridx="1" gridy="5" weighty="0.0" weightx="0.0" alignment="TOP_RIGHT" gridWidth="2" />
+                <XdevButton caption="New" x:name="cmdNew">
+                    <x:constraints weightx="0.0" alignment="MIDDLE_LEFT" />
+                    <x:event>click.buttonClick</x:event>
+                </XdevButton>
+                <XdevButton icon="FontAwesome.SAVE" caption="Save or Update" styleName="primary" x:name="cmdSaveAndNew">
+                    <x:constraints weightx="0.0" alignment="MIDDLE_LEFT" />
+                    <x:event>click.buttonClick</x:event>
+                </XdevButton>
+            </XdevHorizontalLayout>
+        </XdevGridLayout>
+        <XdevTable x:connectedForm="fieldGroup" x:name="table" x:entity="User">
+            <x:entityProperties>
+                <entry type="String" property="username" />
+                <entry type="String" property="firstname" />
+                <entry type="String" property="lastname" />
+            </x:entityProperties>
+            <x:constraints gridx="2" gridy="1" weighty="0.1" weightx="0.2" width="100%" height="100%" />
+            <x:typeArguments>
+                <typeArgument type="User" />
+            </x:typeArguments>
+            <x:event>valueChange.valueChange</x:event>
+        </XdevTable>
+    </XdevGridLayout>
+</XdevView>
+
