@@ -6,6 +6,8 @@ Clone the GIT Reporsitory or use the import function of RapiClipse.
 ```java
 File -> Import -> RapidClipse -> Demo Projects -> "rapidclipse-demo-user-creation"
 ```
+### Troubleshooting
+1. Sometimes you can fix project errors by running a Maven update. "Right click on the project" > "Maven" > "Update Project".
 ### Important project configuration
 1. Connect to your H2 Northwind database with the ["Data Source Explorer"](https://rapidclipse.atlassian.net/wiki/display/DOCEN/Data+Source+Explorer) view in RapidClipse.
 2. Open the schema.ddl file and export the script to your H2 Northwind database. The DDL file is located under "res/ddl/schema.ddl". See ["Run DDL scripts"](https://rapidclipse.atlassian.net/wiki/pages/viewpage.action?pageId=50659557)
